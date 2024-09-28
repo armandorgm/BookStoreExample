@@ -10,6 +10,7 @@
     height: 486px;
     width: 15.5vw;
     background: black;
+    position: relative;
 
 }
 
@@ -19,6 +20,7 @@
     position: absolute;
     background-color: black;
     font-size: 24px;
+    display: none;
 }
 .main img{
     background: black;

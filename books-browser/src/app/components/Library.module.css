@@ -26,5 +26,44 @@
         flex-direction: row;
         justify-content: flex-start;
         align-content: flex-start;
-}
+    }
+    .main ol.bookContainer{
+        width: 1234px;
+    }
+    .mainContainer{
+        display: flex;
+        flex-direction: row;
+        background-color: black;
+        flex-wrap: nowrap;
+
+    }
+    .inputsContainer{
+        display: flex;
+        gap:45px;
+        padding: 25px;
+    }
+    .inputContainer{
+        display: flex;
+        flex-direction: column;
+    }
+    .readContainer{
+        border: 1px;
+        width: 33%;
+        background-color: #000; /* Fondo negro para el cuadro */
+        border: 2px solid #fff; /* Borde blanco para destacar el cuadro */
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Sombra blanca */
+        color: #fff; /* Texto blanco */
+        text-align: center;
+    }
+    
+    .genreFilter{
+        font-size: 24px;
+        color: black;
+        background: darkgray;
+    }
+    .horizontalContainer{
+        display: flex;
+        flex-direction: row;
+    }   
   }

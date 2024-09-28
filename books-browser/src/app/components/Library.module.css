@@ -1,0 +1,30 @@
+.main{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 1rem;
+        flex-direction: column;
+        background-color: gainsboro;
+}
+
+.main ol{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100vw;
+    gap: 5px;
+    background-color: black;
+}
+.main li{
+    list-style-type: none;
+    display: flex;
+}  
+@media (min-width: 1024px) {
+    .main{
+        width: 100%;
+    }
+    .main ol{
+        flex-direction: row;
+        justify-content: flex-start;
+        align-content: flex-start;
+}
+  }

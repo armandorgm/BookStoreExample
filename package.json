@@ -1,0 +1,28 @@
+{
+  "name": "armando-gonzalez",
+  "version": "1.0.0",
+  "description": "navegador de libros",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/smartway1/pruebas-tecnicas/postulantes/armando-gonzalez.git"
+  },
+  "keywords": [
+    "books",
+    "browser"
+  ],
+  "author": "armando gonzalez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/smartway1/pruebas-tecnicas/postulantes/armando-gonzalez/issues"
+  },
+  "homepage": "https://gitlab.com/smartway1/pruebas-tecnicas/postulantes/armando-gonzalez#readme",
+  "dependencies": {
+    "rc-slider": "^11.1.6",
+    "react-router-dom": "^6.26.2",
+    "react-slider": "^2.0.6"
+  }
+}

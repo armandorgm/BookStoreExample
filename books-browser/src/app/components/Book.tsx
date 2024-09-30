@@ -2,16 +2,13 @@
 import { useState } from "react"
 import style from "./Book.module.css"
 
-function Book ({title,pages,genre,cover,synopsis,year,ISBN,clickedISBNtoRead}){
-    const[selected,setSelected]=useState(false)
+function Book ({title,pages,genre,cover,synopsis,year,ISBN}:Book){
     
     return (
-        <li className={style.main} key={ISBN} onClick={
-            () => clickedISBNtoRead(ISBN)
-        }>
+        <div className={`${style.main}`} key={ISBN}>
             <img src={cover} alt='book cover'/>
             <span>{pages}</span>
-        </li>
+        </div>
     )
 }
  export default Book

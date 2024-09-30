@@ -2,25 +2,18 @@
 import styles from './Library.module.css';
 import Book from "./Book"; 
 import { useState, useEffect } from 'react';
-
-function ReadList({placeholder}){
-    const [booksInReadList,setBooksInReadList] = useState([])
-    
-    return (
-        <div>
-            {booksInReadList}
-        </div>
-    )
-}
+import ReadList from './readList';
+import MainBookContainer from './mainBookContainer';
+import BookFilters from "./book_filters"
 
  function Library ({booksSource}:{booksSource:any[]}){
     console.log("Library me reinicie")
-    const [pagefilter, setPagefilter] = useState(9999);
+    const [pagefilter, setPagefilter] = useState(999);
     const [filteredBooks, setFilteredBooks] = useState(booksSource);
     const [filteredBooksElement, setFilteredBooksElement] = useState([] );
     const [genreFilter, setGenreFilter] = useState([] );
     
-    const [booksElementInReadList, setBooksElementInReadList] = useState([] );
+    const [booksElementInReadList, setBooksElementInReadList] = useState<typeof Book[]>([] );
 
     
 
@@ -31,15 +24,15 @@ function ReadList({placeholder}){
     const clickedBook = (ISBN) => {
         const newClickedBook = booksSource.find((book)=>book.book.ISBN == ISBN).book
         //setBooksElementInReadList(bookMapper([newClickedBook]))//breaks code
-        //console.log(newClickedBook)
+        console.log(newClickedBook)
         //console.log("tamaño previo de array: " + booksElementInReadList.length)
         const newReadList = [...booksElementInReadList,newClickedBook]
         //console.log("tamaño post de array: " + newReadList.length)
-        setBooksElementInReadList((<div>hola</div>))
+        setBooksElementInReadList((previousState)=>[...previousState,<Book cover={newClickedBook.cover}/>])
         console.log(ISBN)
       };
 
-    function bookMapper(books:any[],clickAction){
+    function bookMapper(books:any[],clickAction:()=>{}){
         console.debug(books)
         const newBooksElements = books.map((bookJson:any) =>(
             <Book 
@@ -51,7 +44,7 @@ function ReadList({placeholder}){
                 year={bookJson.book.year}
                 ISBN={bookJson.book.ISBN}
                 key={bookJson.book.ISBN}
-                clickedISBNtoRead={clickAction}
+                clickAction={clickAction}
                 />
         ))
         return newBooksElements
@@ -62,7 +55,7 @@ function ReadList({placeholder}){
     }, [booksSource]);
 
     useEffect(() => {
-        const result = booksSource.filter((book) =>  book.book.pages <= pagefilter && (genreFilter=="Todos"||book.book.genre == genreFilter));
+        const result = booksSource.filter((book) =>  book.book.pages <= pagefilter && (genreFilter=="Todos"||genreFilter==""||book.book.genre == genreFilter));
         setFilteredBooksElement(bookMapper(result,clickedBook))
         setFilteredBooks(result);
     }, [pagefilter,genreFilter]);
@@ -79,16 +72,12 @@ function ReadList({placeholder}){
         const newValue = event.target.value; // Convierte el valor a un número entero
         setGenreFilter(newValue); // Actualiza el estado con el nuevo valor del slider
     };
-      
-
-      useEffect(() => {
-        console.debug("booksElementInReadList actualizado a:", booksElementInReadList);
-    }, [booksElementInReadList]);
     
     return (
         <div className={styles.main}>
             <div>
                 <div>
+                    <BookFilters/>
                     <div className={styles.inputsContainer}>
                         <div className={styles.inputContainer}>
                             <label htmlFor="pagefilter">cantidad max. paginas</label>
@@ -114,15 +103,11 @@ function ReadList({placeholder}){
                     <h1>{filteredBooks.length} libros disponibles</h1>
                 </div>
                 <div className={styles.mainContainer}>
-
+                    <MainBookContainer/>
                     <ol className={styles.bookContainer}>
                         {filteredBooksElement}
                     </ol>
-                    <ol className={styles.readContainer}>
-                        <h2>{booksElementInReadList.length?booksElementInReadList.length:"Sin"} libros en la lista de lectura</h2>
-                        {booksElementInReadList}
-                    </ol>
-
+                    <ReadList books={booksElementInReadList}/>
                 </div>
         </div>
     )

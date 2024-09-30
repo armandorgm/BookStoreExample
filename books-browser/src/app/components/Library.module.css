@@ -6,11 +6,10 @@
         background-color: gainsboro;
 }
 
-.main ol{
+.bookContainer{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    height: 100vw;
     gap: 5px;
     background-color: black;
 }
@@ -27,7 +26,7 @@
         justify-content: flex-start;
         align-content: flex-start;
     }
-    .main ol.bookContainer{
+    .bookContainer{
         width: 1234px;
     }
     .mainContainer{

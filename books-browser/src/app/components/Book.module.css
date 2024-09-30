@@ -4,11 +4,10 @@
     align-items: center;
     display: flex;
     aspect-ratio: 15/23;
-    gap: 5px;
+    gap: 4px;
     justify-content: space-around;
     overflow: hidden;
-    height: 486px;
-    width: 15.5vw;
+    width: 14.8vw;
     background: black;
     position: relative;
 

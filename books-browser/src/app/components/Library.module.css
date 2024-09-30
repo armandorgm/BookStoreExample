@@ -4,38 +4,23 @@
         padding: 1rem;
         flex-direction: column;
         background-color: gainsboro;
+        list-style-type: none;
+
 }
 
-.bookContainer{
+.mainContainer{
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 5px;
+    flex-direction: row;
     background-color: black;
+    flex-wrap: nowrap;
+
 }
-.main li{
-    list-style-type: none;
-    display: flex;
-}  
+
 @media (min-width: 1024px) {
     .main{
         width: 100%;
     }
-    .main ol{
-        flex-direction: row;
-        justify-content: flex-start;
-        align-content: flex-start;
-    }
-    .bookContainer{
-        width: 1234px;
-    }
-    .mainContainer{
-        display: flex;
-        flex-direction: row;
-        background-color: black;
-        flex-wrap: nowrap;
 
-    }
     .inputsContainer{
         display: flex;
         gap:45px;
@@ -61,8 +46,5 @@
         color: black;
         background: darkgray;
     }
-    .horizontalContainer{
-        display: flex;
-        flex-direction: row;
-    }   
+ 
   }

@@ -1,9 +1,9 @@
 .main{
-        width: 33%;
-        background-color: #3e3e3e;
-        border-radius: 18px;
-        margin: 22px;
-    
+    width: 33%;
+    background-color: #3e3e3e;
+    border-radius: 18px;
+    margin: 22px;
+    flex: 1 1 0;
 }
 .title{
     padding: 33px;

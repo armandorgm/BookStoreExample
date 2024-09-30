@@ -1,7 +1,8 @@
 @media (min-width: 1024px) {
     .main {
-        width: 1234px;
-        height: 6rem;
-        background-color: rgb(255, 251, 0);
+        display: flex;
+        
+        justify-content: flex-start;
+        gap: 1rem;
     }
 }

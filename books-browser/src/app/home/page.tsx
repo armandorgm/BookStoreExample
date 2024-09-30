@@ -1,13 +1,12 @@
 'use client'
 
-import { stringify } from "querystring";
 import Library from "../components/Library"
 import { useEffect, useState } from "react";
 
 export  default function Main() {
-    const [booksArray,setBooksArray]=useState([])
+    const [books,setBooks]=useState<iBook[]>([])
     useEffect(()=>{
-        let books = []
+        let books:iBook[] = []
         let token = null
         
         if (typeof window !== 'undefined') {
@@ -20,24 +19,25 @@ export  default function Main() {
                 }
             })
             .then((res)=> res.json())
-            .then((res)=>{
-                books=res;
-                console.log(`home-receives: ${books.library instanceof Array?"array of "+ books.library.length:"not array"}`)
-                setBooksArray(books.library)
+            .then((res:iLibrary)=>{
+                books=res.library;
+                console.log("res: "+JSON.stringify(res))
+                console.log(`home-receives: ${books instanceof Array?"array of "+ books.length:"not array"}`)
+                setBooks(books)
                 console.log("books asentandose")
-                console.log("books: "+(booksArray instanceof Array?"array of "+ booksArray.length:"not array"))
+                console.log("books: "+(books instanceof Array?"array of "+ books.length:"not array"))
             })
-            console.log("devolviendo Library as "+(booksArray instanceof Array?"array of "+ booksArray.length:"not array"))
+            console.log("devolviendo Library as "+(books instanceof Array?"array of "+ books.length:"not array"))
         }
     },[])
 
     useEffect(()=>{
-        console.log(`home: booksArray ha cambiado ${booksArray instanceof Array?"array of "+ booksArray.length:"not array"}`)
-    },[booksArray])
+        console.log(`home: booksArray ha cambiado ${books instanceof Array?"array of "+ books.length:"not array"}`)
+    },[books])
     
     return (
         <div>
-            <Library booksSource={booksArray} />
+            <Library booksSource={books} />
         </div>
     )
 }

@@ -1,50 +1,81 @@
-.main{
-        display: flex;
-        flex-wrap: wrap;
-        padding: 1rem;
-        flex-direction: column;
-        background-color: gainsboro;
-        list-style-type: none;
-
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    flex-direction: column;
+    background-color: gainsboro;
+    list-style-type: none;
 }
 
-.mainContainer{
+.main h1 {
+    color: white;
+    padding: 0.1rem;
+}
+
+.mainContainer {
     display: flex;
     flex-direction: row;
     background-color: black;
     flex-wrap: nowrap;
+    border-radius: 10px;
+    padding: 1rem;
+    align-items: self-start;
+}
 
+.availableBooksContainer {
+    flex: 4 1;
+}
+
+.MainBookContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 5px;
+    background-color: black;
+    flex: 2 1 0;
+    padding: 1;
 }
 
 @media (min-width: 1024px) {
-    .main{
+    .main {
         width: 100%;
     }
 
-    .inputsContainer{
+    .MainBookContainer {
         display: flex;
-        gap:45px;
+        flex-direction: row;
+    }
+
+    .inputsContainer {
+        display: flex;
+        gap: 45px;
         padding: 25px;
     }
-    .inputContainer{
+
+    .inputContainer {
         display: flex;
         flex-direction: column;
     }
-    .readContainer{
+
+    .readContainer {
         border: 1px;
         width: 33%;
-        background-color: #000; /* Fondo negro para el cuadro */
-        border: 2px solid #fff; /* Borde blanco para destacar el cuadro */
+        background-color: #000;
+        /* Fondo negro para el cuadro */
+        border: 2px solid #fff;
+        /* Borde blanco para destacar el cuadro */
         padding: 20px;
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Sombra blanca */
-        color: #fff; /* Texto blanco */
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        /* Sombra blanca */
+        color: #fff;
+        /* Texto blanco */
         text-align: center;
     }
-    
-    .genreFilter{
+
+    .genreFilter {
         font-size: 24px;
         color: black;
         background: darkgray;
     }
- 
-  }
+
+}

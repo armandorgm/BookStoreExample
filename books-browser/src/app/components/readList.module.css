@@ -4,6 +4,8 @@
     border-radius: 18px;
     margin: 22px;
     flex: 1 1 0;
+    padding: 10px;
+    align-items: center;
 }
 .title{
     padding: 33px;

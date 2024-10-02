@@ -6,11 +6,11 @@ interface iCoreBook {
     synopsis: string
     year: number,
     ISBN: string,
-    clickAction: () => {}
 }
 
 interface iBook {
     book: iCoreBook
+    clickAction: any
 }
 interface iLibrary {
     library: iBook[]

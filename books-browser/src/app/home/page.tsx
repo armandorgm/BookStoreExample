@@ -21,10 +21,7 @@ export  default function Main() {
             .then((res)=> res.json())
             .then((res:iLibrary)=>{
                 books=res.library;
-                console.log("res: "+JSON.stringify(res))
-                console.log(`home-receives: ${books instanceof Array?"array of "+ books.length:"not array"}`)
                 setBooks(books)
-                console.log("books asentandose")
                 console.log("books: "+(books instanceof Array?"array of "+ books.length:"not array"))
             })
             console.log("devolviendo Library as "+(books instanceof Array?"array of "+ books.length:"not array"))

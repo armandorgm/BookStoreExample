@@ -37,6 +37,7 @@ function Library ({booksSource}:{booksSource:iBook[]}){
         setFilteredBooks(result.map(iCoreBookToIBookFunction));
     }, [pagefilter,genreFilter,booksSource]); 
     
+    let booksAvailable = filteredBooks.length-(booksInReadList.filter(bookFilterFunction).length)
     return (
         <div className={style.main}>
             <div className=''>
@@ -47,8 +48,9 @@ function Library ({booksSource}:{booksSource:iBook[]}){
             </div>
             <div className={style.mainContainer}>
                 <div className={style.availableBooksContainer+" verticalContainer"}>
-                    <h1>{filteredBooks.length-(booksInReadList.filter(bookFilterFunction)).length} libros disponibles</h1>
-                    <div className={style.MainBookContainer}>
+                    <h1 className='text-3xl font-bold'>{booksAvailable} libro{booksAvailable!=1?"s":""} disponible{booksAvailable!=1?"s":""}</h1>
+                    {/* <div className={style.MainBookContainer}> */}
+                    <div className="grid grid-cols-4 gap-4">
                         {filteredBooks.map((book:iBook,index)=>(<Book key={book.book.ISBN} book={book.book} clickAction={onAvailableBookClick}/>))}
                     </div>
 

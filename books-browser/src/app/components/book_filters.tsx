@@ -1,14 +1,14 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 import style from "./book_filters.module.css"
 
-export default function BookFilters({ pagefilter, setPagefilter, genreFilter, setGenreFilter }) {
+export default function BookFilters({ pagefilter, setPagefilter, genreFilter, setGenreFilter }:iBookFilters) {
 
-    const handleSliderChange = (event) => {
+    const handleSliderChange = (event:any) => {
         const newValue = parseInt(event.target.value, 10); // Convierte el valor a un número entero
         setPagefilter(newValue); // Actualiza el estado con el nuevo valor del slider
     };
 
-    const genreFilterChange = (event) => {
+    const genreFilterChange = (event:any) => {
         const newValue = event.target.value; // Convierte el valor a un número entero
         setGenreFilter(newValue); // Actualiza el estado con el nuevo valor del slider
     };
@@ -23,7 +23,7 @@ export default function BookFilters({ pagefilter, setPagefilter, genreFilter, se
         </div>
         <div className={style.inputContainer}>
             <label htmlFor="genre">Género</label>
-            <select className={style.genreFilter} name="genre" id="genreFilter" name="pagefilter" onChange={genreFilterChange}>
+            <select className={style.genreFilter} value={genreFilter} id="genreFilter" name="genrefilter" onChange={genreFilterChange}>
                 <option value="Todos">Todos</option>
                 <option value="Fantasía">Fantasía</option>
                 <option value="Ciencia ficción">Ciencia ficción</option>

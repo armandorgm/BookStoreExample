@@ -54,7 +54,7 @@ function Library ({booksSource}:{booksSource:iBook[]}){
             </div>
             <div className={style.mainContainer}>
                 <div className={style.availableBooksContainer+" verticalContainer"}>
-                    <h1>{filteredBooks.length} libros disponibles</h1>
+                    <h1>{filteredBooks.length-(booksInReadList.filter((book) =>  book.pages <= pagefilter && (genreFilter=="Todos"||genreFilter==""||book.genre == genreFilter))).length} libros disponibles</h1>
                     <div className={style.MainBookContainer}>
                         {filteredBooks.map((book:iBook,index)=>(<Book key={book.book.ISBN} book={book.book} clickAction={onAvailableBookClick}/>))}
                     </div>
